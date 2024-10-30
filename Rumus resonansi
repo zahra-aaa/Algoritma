@@ -1,0 +1,44 @@
+def hitung_kecepatan_rambat_suara(λ,f):
+    V = λ * f
+    return V
+
+def hitung_panjang_gelombang(V,f):
+    if f == 0:
+       return None
+    λ = V / f
+    return λ
+
+def hitung_frekuensi(V,λ):
+    F = V / λ
+    return F
+
+def main():
+    print("Program untuk menghitung Resonansi")
+    print("1: hitung kecepatan rambat suara (V)")
+    print("2: hitung panjang gelombang (λ)")
+    print("3: hitung frekuensi (f)")
+
+    pilihan = input("Masukkan pilihan 1/2/3:")
+    if pilihan == "1":
+        λ = float(input("Masukkan nilai panjang gelombang dalam m:"))
+        f = float(input("Masukkan nilai frekuensi dalam Hz:")) # Fixed: Indentation aligned with previous line
+        V = hitung_kecepatan_rambat_suara(λ,f)
+        print(f"Kecepatan rambatnya sebesar : {V: .2f} m/s") # Fixed: Added f-string formatting
+
+    elif pilihan == "2":
+        V = float(input("Masukkan nilai kecepatan rambat suara dalam m/s:"))
+        λ = float(input("Masukkan nilai panjang gelombang dalam m:"))
+        f = hitung_frekuensi(V,λ)
+        print(f"Frekuensinya sebesar : {f: .2f} Hz")
+
+    elif pilihan == "3":
+        V = float(input("Masukkan nilai kecepatan rambat suara m/s:"))
+        f = float(input("Masukkan nilai frekuensi Hz:"))
+        λ = hitung_panjang_gelombang(V,f)
+        print(f"Panjang gelombangnya sebesar : {λ: .2f} m") # Fixed: Added f-string formatting
+
+    else:
+        print("Pilihan tidak sesuai, silahkan pilih 1/2/3") # Fixed: Removed incorrect V variable
+
+if __name__ == "__main__":
+    main()
